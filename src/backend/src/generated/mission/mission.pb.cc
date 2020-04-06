@@ -116,6 +116,14 @@ class SetReturnToLaunchAfterMissionResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SetReturnToLaunchAfterMissionResponse> _instance;
 } _SetReturnToLaunchAfterMissionResponse_default_instance_;
+class ImportQgroundcontrolMissionRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ImportQgroundcontrolMissionRequest> _instance;
+} _ImportQgroundcontrolMissionRequest_default_instance_;
+class ImportQgroundcontrolMissionResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ImportQgroundcontrolMissionResponse> _instance;
+} _ImportQgroundcontrolMissionResponse_default_instance_;
 class MissionItemDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MissionItem> _instance;
@@ -273,6 +281,36 @@ static void InitDefaultsscc_info_GetReturnToLaunchAfterMissionResponse_mission_2
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetReturnToLaunchAfterMissionResponse_mission_2fmission_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GetReturnToLaunchAfterMissionResponse_mission_2fmission_2eproto}, {}};
+
+static void InitDefaultsscc_info_ImportQgroundcontrolMissionRequest_mission_2fmission_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::mavsdk::rpc::mission::_ImportQgroundcontrolMissionRequest_default_instance_;
+    new (ptr) ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImportQgroundcontrolMissionRequest_mission_2fmission_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ImportQgroundcontrolMissionRequest_mission_2fmission_2eproto}, {}};
+
+static void InitDefaultsscc_info_ImportQgroundcontrolMissionResponse_mission_2fmission_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::mavsdk::rpc::mission::_ImportQgroundcontrolMissionResponse_default_instance_;
+    new (ptr) ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ImportQgroundcontrolMissionResponse_mission_2fmission_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ImportQgroundcontrolMissionResponse_mission_2fmission_2eproto}, {
+      &scc_info_MissionResult_mission_2fmission_2eproto.base,
+      &scc_info_MissionItem_mission_2fmission_2eproto.base,}};
 
 static void InitDefaultsscc_info_IsMissionFinishedRequest_mission_2fmission_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -518,7 +556,7 @@ static void InitDefaultsscc_info_UploadMissionResponse_mission_2fmission_2eproto
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_UploadMissionResponse_mission_2fmission_2eproto}, {
       &scc_info_MissionResult_mission_2fmission_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_mission_2fmission_2eproto[27];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_mission_2fmission_2eproto[29];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_mission_2fmission_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_mission_2fmission_2eproto = nullptr;
 
@@ -657,6 +695,19 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_mission_2fmission_2eproto::off
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest, qgc_plan_path_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse, mission_result_),
+  PROTOBUF_FIELD_OFFSET(::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse, mission_items_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mavsdk::rpc::mission::MissionItem, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -711,9 +762,11 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 116, -1, sizeof(::mavsdk::rpc::mission::GetReturnToLaunchAfterMissionResponse)},
   { 122, -1, sizeof(::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest)},
   { 128, -1, sizeof(::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse)},
-  { 133, -1, sizeof(::mavsdk::rpc::mission::MissionItem)},
-  { 148, -1, sizeof(::mavsdk::rpc::mission::MissionProgress)},
-  { 155, -1, sizeof(::mavsdk::rpc::mission::MissionResult)},
+  { 133, -1, sizeof(::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest)},
+  { 139, -1, sizeof(::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse)},
+  { 146, -1, sizeof(::mavsdk::rpc::mission::MissionItem)},
+  { 161, -1, sizeof(::mavsdk::rpc::mission::MissionProgress)},
+  { 168, -1, sizeof(::mavsdk::rpc::mission::MissionResult)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -741,6 +794,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::mavsdk::rpc::mission::_GetReturnToLaunchAfterMissionResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::mavsdk::rpc::mission::_SetReturnToLaunchAfterMissionRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::mavsdk::rpc::mission::_SetReturnToLaunchAfterMissionResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::mavsdk::rpc::mission::_ImportQgroundcontrolMissionRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::mavsdk::rpc::mission::_ImportQgroundcontrolMissionResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::mavsdk::rpc::mission::_MissionItem_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::mavsdk::rpc::mission::_MissionProgress_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::mavsdk::rpc::mission::_MissionResult_default_instance_),
@@ -781,71 +836,84 @@ const char descriptor_table_protodef_mission_2fmission_2eproto[] PROTOBUF_SECTIO
   "ssionResponse\022\016\n\006enable\030\001 \001(\010\"6\n$SetRetu"
   "rnToLaunchAfterMissionRequest\022\016\n\006enable\030"
   "\001 \001(\010\"\'\n%SetReturnToLaunchAfterMissionRe"
-  "sponse\"\257\003\n\013MissionItem\022\024\n\014latitude_deg\030\001"
-  " \001(\001\022\025\n\rlongitude_deg\030\002 \001(\001\022\033\n\023relative_"
-  "altitude_m\030\003 \001(\002\022\021\n\tspeed_m_s\030\004 \001(\002\022\026\n\016i"
-  "s_fly_through\030\005 \001(\010\022\030\n\020gimbal_pitch_deg\030"
-  "\006 \001(\002\022\026\n\016gimbal_yaw_deg\030\007 \001(\002\022C\n\rcamera_"
-  "action\030\010 \001(\0162,.mavsdk.rpc.mission.Missio"
-  "nItem.CameraAction\022\025\n\rloiter_time_s\030\t \001("
-  "\002\022\037\n\027camera_photo_interval_s\030\n \001(\001\"|\n\014Ca"
-  "meraAction\022\010\n\004NONE\020\000\022\016\n\nTAKE_PHOTO\020\001\022\030\n\024"
-  "START_PHOTO_INTERVAL\020\002\022\027\n\023STOP_PHOTO_INT"
-  "ERVAL\020\003\022\017\n\013START_VIDEO\020\004\022\016\n\nSTOP_VIDEO\020\005"
-  "\"D\n\017MissionProgress\022\032\n\022current_item_inde"
-  "x\030\001 \001(\005\022\025\n\rmission_count\030\002 \001(\005\"\361\002\n\rMissi"
-  "onResult\0228\n\006result\030\001 \001(\0162(.mavsdk.rpc.mi"
-  "ssion.MissionResult.Result\022\022\n\nresult_str"
-  "\030\002 \001(\t\"\221\002\n\006Result\022\013\n\007UNKNOWN\020\000\022\013\n\007SUCCES"
-  "S\020\001\022\t\n\005ERROR\020\002\022\032\n\026TOO_MANY_MISSION_ITEMS"
-  "\020\003\022\010\n\004BUSY\020\004\022\013\n\007TIMEOUT\020\005\022\024\n\020INVALID_ARG"
-  "UMENT\020\006\022\017\n\013UNSUPPORTED\020\007\022\030\n\024NO_MISSION_A"
-  "VAILABLE\020\010\022\033\n\027FAILED_TO_OPEN_QGC_PLAN\020\t\022"
-  "\034\n\030FAILED_TO_PARSE_QGC_PLAN\020\n\022\033\n\027UNSUPPO"
-  "RTED_MISSION_CMD\020\013\022\026\n\022TRANSFER_CANCELLED"
-  "\020\0142\310\013\n\016MissionService\022f\n\rUploadMission\022("
-  ".mavsdk.rpc.mission.UploadMissionRequest"
-  "\032).mavsdk.rpc.mission.UploadMissionRespo"
-  "nse\"\000\022x\n\023CancelMissionUpload\022..mavsdk.rp"
-  "c.mission.CancelMissionUploadRequest\032/.m"
-  "avsdk.rpc.mission.CancelMissionUploadRes"
-  "ponse\"\000\022l\n\017DownloadMission\022*.mavsdk.rpc."
-  "mission.DownloadMissionRequest\032+.mavsdk."
-  "rpc.mission.DownloadMissionResponse\"\000\022~\n"
-  "\025CancelMissionDownload\0220.mavsdk.rpc.miss"
-  "ion.CancelMissionDownloadRequest\0321.mavsd"
-  "k.rpc.mission.CancelMissionDownloadRespo"
-  "nse\"\000\022c\n\014StartMission\022\'.mavsdk.rpc.missi"
-  "on.StartMissionRequest\032(.mavsdk.rpc.miss"
-  "ion.StartMissionResponse\"\000\022c\n\014PauseMissi"
-  "on\022\'.mavsdk.rpc.mission.PauseMissionRequ"
-  "est\032(.mavsdk.rpc.mission.PauseMissionRes"
-  "ponse\"\000\022c\n\014ClearMission\022\'.mavsdk.rpc.mis"
-  "sion.ClearMissionRequest\032(.mavsdk.rpc.mi"
-  "ssion.ClearMissionResponse\"\000\022\215\001\n\032SetCurr"
-  "entMissionItemIndex\0225.mavsdk.rpc.mission"
-  ".SetCurrentMissionItemIndexRequest\0326.mav"
-  "sdk.rpc.mission.SetCurrentMissionItemInd"
-  "exResponse\"\000\022r\n\021IsMissionFinished\022,.mavs"
-  "dk.rpc.mission.IsMissionFinishedRequest\032"
-  "-.mavsdk.rpc.mission.IsMissionFinishedRe"
-  "sponse\"\000\022\200\001\n\030SubscribeMissionProgress\0223."
-  "mavsdk.rpc.mission.SubscribeMissionProgr"
-  "essRequest\032+.mavsdk.rpc.mission.MissionP"
-  "rogressResponse\"\0000\001\022\226\001\n\035GetReturnToLaunc"
-  "hAfterMission\0228.mavsdk.rpc.mission.GetRe"
-  "turnToLaunchAfterMissionRequest\0329.mavsdk"
-  ".rpc.mission.GetReturnToLaunchAfterMissi"
-  "onResponse\"\000\022\226\001\n\035SetReturnToLaunchAfterM"
-  "ission\0228.mavsdk.rpc.mission.SetReturnToL"
-  "aunchAfterMissionRequest\0329.mavsdk.rpc.mi"
-  "ssion.SetReturnToLaunchAfterMissionRespo"
-  "nse\"\000B!\n\021io.mavsdk.missionB\014MissionProto"
-  "b\006proto3"
+  "sponse\";\n\"ImportQgroundcontrolMissionReq"
+  "uest\022\025\n\rqgc_plan_path\030\001 \001(\t\"\230\001\n#ImportQg"
+  "roundcontrolMissionResponse\0229\n\016mission_r"
+  "esult\030\001 \001(\0132!.mavsdk.rpc.mission.Mission"
+  "Result\0226\n\rmission_items\030\002 \003(\0132\037.mavsdk.r"
+  "pc.mission.MissionItem\"\204\004\n\013MissionItem\022\024"
+  "\n\014latitude_deg\030\001 \001(\001\022\025\n\rlongitude_deg\030\002 "
+  "\001(\001\022\033\n\023relative_altitude_m\030\003 \001(\002\022\021\n\tspee"
+  "d_m_s\030\004 \001(\002\022\026\n\016is_fly_through\030\005 \001(\010\022\030\n\020g"
+  "imbal_pitch_deg\030\006 \001(\002\022\026\n\016gimbal_yaw_deg\030"
+  "\007 \001(\002\022C\n\rcamera_action\030\010 \001(\0162,.mavsdk.rp"
+  "c.mission.MissionItem.CameraAction\022\025\n\rlo"
+  "iter_time_s\030\t \001(\002\022\037\n\027camera_photo_interv"
+  "al_s\030\n \001(\001\"\320\001\n\014CameraAction\022\026\n\022CAMERA_AC"
+  "TION_NONE\020\000\022\034\n\030CAMERA_ACTION_TAKE_PHOTO\020"
+  "\001\022&\n\"CAMERA_ACTION_START_PHOTO_INTERVAL\020"
+  "\002\022%\n!CAMERA_ACTION_STOP_PHOTO_INTERVAL\020\003"
+  "\022\035\n\031CAMERA_ACTION_START_VIDEO\020\004\022\034\n\030CAMER"
+  "A_ACTION_STOP_VIDEO\020\005\"D\n\017MissionProgress"
+  "\022\032\n\022current_item_index\030\001 \001(\005\022\025\n\rmission_"
+  "count\030\002 \001(\005\"\314\003\n\rMissionResult\0228\n\006result\030"
+  "\001 \001(\0162(.mavsdk.rpc.mission.MissionResult"
+  ".Result\022\022\n\nresult_str\030\002 \001(\t\"\354\002\n\006Result\022\022"
+  "\n\016RESULT_UNKNOWN\020\000\022\022\n\016RESULT_SUCCESS\020\001\022\020"
+  "\n\014RESULT_ERROR\020\002\022!\n\035RESULT_TOO_MANY_MISS"
+  "ION_ITEMS\020\003\022\017\n\013RESULT_BUSY\020\004\022\022\n\016RESULT_T"
+  "IMEOUT\020\005\022\033\n\027RESULT_INVALID_ARGUMENT\020\006\022\026\n"
+  "\022RESULT_UNSUPPORTED\020\007\022\037\n\033RESULT_NO_MISSI"
+  "ON_AVAILABLE\020\010\022\"\n\036RESULT_FAILED_TO_OPEN_"
+  "QGC_PLAN\020\t\022#\n\037RESULT_FAILED_TO_PARSE_QGC"
+  "_PLAN\020\n\022\"\n\036RESULT_UNSUPPORTED_MISSION_CM"
+  "D\020\013\022\035\n\031RESULT_TRANSFER_CANCELLED\020\0142\333\014\n\016M"
+  "issionService\022f\n\rUploadMission\022(.mavsdk."
+  "rpc.mission.UploadMissionRequest\032).mavsd"
+  "k.rpc.mission.UploadMissionResponse\"\000\022x\n"
+  "\023CancelMissionUpload\022..mavsdk.rpc.missio"
+  "n.CancelMissionUploadRequest\032/.mavsdk.rp"
+  "c.mission.CancelMissionUploadResponse\"\000\022"
+  "l\n\017DownloadMission\022*.mavsdk.rpc.mission."
+  "DownloadMissionRequest\032+.mavsdk.rpc.miss"
+  "ion.DownloadMissionResponse\"\000\022~\n\025CancelM"
+  "issionDownload\0220.mavsdk.rpc.mission.Canc"
+  "elMissionDownloadRequest\0321.mavsdk.rpc.mi"
+  "ssion.CancelMissionDownloadResponse\"\000\022c\n"
+  "\014StartMission\022\'.mavsdk.rpc.mission.Start"
+  "MissionRequest\032(.mavsdk.rpc.mission.Star"
+  "tMissionResponse\"\000\022c\n\014PauseMission\022\'.mav"
+  "sdk.rpc.mission.PauseMissionRequest\032(.ma"
+  "vsdk.rpc.mission.PauseMissionResponse\"\000\022"
+  "c\n\014ClearMission\022\'.mavsdk.rpc.mission.Cle"
+  "arMissionRequest\032(.mavsdk.rpc.mission.Cl"
+  "earMissionResponse\"\000\022\215\001\n\032SetCurrentMissi"
+  "onItemIndex\0225.mavsdk.rpc.mission.SetCurr"
+  "entMissionItemIndexRequest\0326.mavsdk.rpc."
+  "mission.SetCurrentMissionItemIndexRespon"
+  "se\"\000\022r\n\021IsMissionFinished\022,.mavsdk.rpc.m"
+  "ission.IsMissionFinishedRequest\032-.mavsdk"
+  ".rpc.mission.IsMissionFinishedResponse\"\000"
+  "\022\200\001\n\030SubscribeMissionProgress\0223.mavsdk.r"
+  "pc.mission.SubscribeMissionProgressReque"
+  "st\032+.mavsdk.rpc.mission.MissionProgressR"
+  "esponse\"\0000\001\022\226\001\n\035GetReturnToLaunchAfterMi"
+  "ssion\0228.mavsdk.rpc.mission.GetReturnToLa"
+  "unchAfterMissionRequest\0329.mavsdk.rpc.mis"
+  "sion.GetReturnToLaunchAfterMissionRespon"
+  "se\"\000\022\226\001\n\035SetReturnToLaunchAfterMission\0228"
+  ".mavsdk.rpc.mission.SetReturnToLaunchAft"
+  "erMissionRequest\0329.mavsdk.rpc.mission.Se"
+  "tReturnToLaunchAfterMissionResponse\"\000\022\220\001"
+  "\n\033ImportQgroundcontrolMission\0226.mavsdk.r"
+  "pc.mission.ImportQgroundcontrolMissionRe"
+  "quest\0327.mavsdk.rpc.mission.ImportQground"
+  "controlMissionResponse\"\000B!\n\021io.mavsdk.mi"
+  "ssionB\014MissionProtob\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_mission_2fmission_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mission_2fmission_2eproto_sccs[27] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mission_2fmission_2eproto_sccs[29] = {
   &scc_info_CancelMissionDownloadRequest_mission_2fmission_2eproto.base,
   &scc_info_CancelMissionDownloadResponse_mission_2fmission_2eproto.base,
   &scc_info_CancelMissionUploadRequest_mission_2fmission_2eproto.base,
@@ -856,6 +924,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mis
   &scc_info_DownloadMissionResponse_mission_2fmission_2eproto.base,
   &scc_info_GetReturnToLaunchAfterMissionRequest_mission_2fmission_2eproto.base,
   &scc_info_GetReturnToLaunchAfterMissionResponse_mission_2fmission_2eproto.base,
+  &scc_info_ImportQgroundcontrolMissionRequest_mission_2fmission_2eproto.base,
+  &scc_info_ImportQgroundcontrolMissionResponse_mission_2fmission_2eproto.base,
   &scc_info_IsMissionFinishedRequest_mission_2fmission_2eproto.base,
   &scc_info_IsMissionFinishedResponse_mission_2fmission_2eproto.base,
   &scc_info_MissionItem_mission_2fmission_2eproto.base,
@@ -877,10 +947,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mis
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_mission_2fmission_2eproto_once;
 static bool descriptor_table_mission_2fmission_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_mission_2fmission_2eproto = {
-  &descriptor_table_mission_2fmission_2eproto_initialized, descriptor_table_protodef_mission_2fmission_2eproto, "mission/mission.proto", 3768,
-  &descriptor_table_mission_2fmission_2eproto_once, descriptor_table_mission_2fmission_2eproto_sccs, descriptor_table_mission_2fmission_2eproto_deps, 27, 0,
+  &descriptor_table_mission_2fmission_2eproto_initialized, descriptor_table_protodef_mission_2fmission_2eproto, "mission/mission.proto", 4307,
+  &descriptor_table_mission_2fmission_2eproto_once, descriptor_table_mission_2fmission_2eproto_sccs, descriptor_table_mission_2fmission_2eproto_deps, 29, 0,
   schemas, file_default_instances, TableStruct_mission_2fmission_2eproto::offsets,
-  file_level_metadata_mission_2fmission_2eproto, 27, file_level_enum_descriptors_mission_2fmission_2eproto, file_level_service_descriptors_mission_2fmission_2eproto,
+  file_level_metadata_mission_2fmission_2eproto, 29, file_level_enum_descriptors_mission_2fmission_2eproto, file_level_service_descriptors_mission_2fmission_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -907,12 +977,12 @@ bool MissionItem_CameraAction_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
-constexpr MissionItem_CameraAction MissionItem::NONE;
-constexpr MissionItem_CameraAction MissionItem::TAKE_PHOTO;
-constexpr MissionItem_CameraAction MissionItem::START_PHOTO_INTERVAL;
-constexpr MissionItem_CameraAction MissionItem::STOP_PHOTO_INTERVAL;
-constexpr MissionItem_CameraAction MissionItem::START_VIDEO;
-constexpr MissionItem_CameraAction MissionItem::STOP_VIDEO;
+constexpr MissionItem_CameraAction MissionItem::CAMERA_ACTION_NONE;
+constexpr MissionItem_CameraAction MissionItem::CAMERA_ACTION_TAKE_PHOTO;
+constexpr MissionItem_CameraAction MissionItem::CAMERA_ACTION_START_PHOTO_INTERVAL;
+constexpr MissionItem_CameraAction MissionItem::CAMERA_ACTION_STOP_PHOTO_INTERVAL;
+constexpr MissionItem_CameraAction MissionItem::CAMERA_ACTION_START_VIDEO;
+constexpr MissionItem_CameraAction MissionItem::CAMERA_ACTION_STOP_VIDEO;
 constexpr MissionItem_CameraAction MissionItem::CameraAction_MIN;
 constexpr MissionItem_CameraAction MissionItem::CameraAction_MAX;
 constexpr int MissionItem::CameraAction_ARRAYSIZE;
@@ -943,19 +1013,19 @@ bool MissionResult_Result_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
-constexpr MissionResult_Result MissionResult::UNKNOWN;
-constexpr MissionResult_Result MissionResult::SUCCESS;
-constexpr MissionResult_Result MissionResult::ERROR;
-constexpr MissionResult_Result MissionResult::TOO_MANY_MISSION_ITEMS;
-constexpr MissionResult_Result MissionResult::BUSY;
-constexpr MissionResult_Result MissionResult::TIMEOUT;
-constexpr MissionResult_Result MissionResult::INVALID_ARGUMENT;
-constexpr MissionResult_Result MissionResult::UNSUPPORTED;
-constexpr MissionResult_Result MissionResult::NO_MISSION_AVAILABLE;
-constexpr MissionResult_Result MissionResult::FAILED_TO_OPEN_QGC_PLAN;
-constexpr MissionResult_Result MissionResult::FAILED_TO_PARSE_QGC_PLAN;
-constexpr MissionResult_Result MissionResult::UNSUPPORTED_MISSION_CMD;
-constexpr MissionResult_Result MissionResult::TRANSFER_CANCELLED;
+constexpr MissionResult_Result MissionResult::RESULT_UNKNOWN;
+constexpr MissionResult_Result MissionResult::RESULT_SUCCESS;
+constexpr MissionResult_Result MissionResult::RESULT_ERROR;
+constexpr MissionResult_Result MissionResult::RESULT_TOO_MANY_MISSION_ITEMS;
+constexpr MissionResult_Result MissionResult::RESULT_BUSY;
+constexpr MissionResult_Result MissionResult::RESULT_TIMEOUT;
+constexpr MissionResult_Result MissionResult::RESULT_INVALID_ARGUMENT;
+constexpr MissionResult_Result MissionResult::RESULT_UNSUPPORTED;
+constexpr MissionResult_Result MissionResult::RESULT_NO_MISSION_AVAILABLE;
+constexpr MissionResult_Result MissionResult::RESULT_FAILED_TO_OPEN_QGC_PLAN;
+constexpr MissionResult_Result MissionResult::RESULT_FAILED_TO_PARSE_QGC_PLAN;
+constexpr MissionResult_Result MissionResult::RESULT_UNSUPPORTED_MISSION_CMD;
+constexpr MissionResult_Result MissionResult::RESULT_TRANSFER_CANCELLED;
 constexpr MissionResult_Result MissionResult::Result_MIN;
 constexpr MissionResult_Result MissionResult::Result_MAX;
 constexpr int MissionResult::Result_ARRAYSIZE;
@@ -5199,6 +5269,440 @@ void SetReturnToLaunchAfterMissionResponse::InternalSwap(SetReturnToLaunchAfterM
 
 // ===================================================================
 
+void ImportQgroundcontrolMissionRequest::InitAsDefaultInstance() {
+}
+class ImportQgroundcontrolMissionRequest::_Internal {
+ public:
+};
+
+ImportQgroundcontrolMissionRequest::ImportQgroundcontrolMissionRequest()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+}
+ImportQgroundcontrolMissionRequest::ImportQgroundcontrolMissionRequest(const ImportQgroundcontrolMissionRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  qgc_plan_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_qgc_plan_path().empty()) {
+    qgc_plan_path_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.qgc_plan_path_);
+  }
+  // @@protoc_insertion_point(copy_constructor:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+}
+
+void ImportQgroundcontrolMissionRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImportQgroundcontrolMissionRequest_mission_2fmission_2eproto.base);
+  qgc_plan_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+ImportQgroundcontrolMissionRequest::~ImportQgroundcontrolMissionRequest() {
+  // @@protoc_insertion_point(destructor:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  SharedDtor();
+}
+
+void ImportQgroundcontrolMissionRequest::SharedDtor() {
+  qgc_plan_path_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void ImportQgroundcontrolMissionRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ImportQgroundcontrolMissionRequest& ImportQgroundcontrolMissionRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ImportQgroundcontrolMissionRequest_mission_2fmission_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ImportQgroundcontrolMissionRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  qgc_plan_path_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+const char* ImportQgroundcontrolMissionRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string qgc_plan_path = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_qgc_plan_path();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest.qgc_plan_path"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* ImportQgroundcontrolMissionRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string qgc_plan_path = 1;
+  if (this->qgc_plan_path().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_qgc_plan_path().data(), static_cast<int>(this->_internal_qgc_plan_path().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest.qgc_plan_path");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_qgc_plan_path(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  return target;
+}
+
+size_t ImportQgroundcontrolMissionRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string qgc_plan_path = 1;
+  if (this->qgc_plan_path().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_qgc_plan_path());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ImportQgroundcontrolMissionRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ImportQgroundcontrolMissionRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImportQgroundcontrolMissionRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+    MergeFrom(*source);
+  }
+}
+
+void ImportQgroundcontrolMissionRequest::MergeFrom(const ImportQgroundcontrolMissionRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.qgc_plan_path().size() > 0) {
+
+    qgc_plan_path_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.qgc_plan_path_);
+  }
+}
+
+void ImportQgroundcontrolMissionRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ImportQgroundcontrolMissionRequest::CopyFrom(const ImportQgroundcontrolMissionRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ImportQgroundcontrolMissionRequest::IsInitialized() const {
+  return true;
+}
+
+void ImportQgroundcontrolMissionRequest::InternalSwap(ImportQgroundcontrolMissionRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  qgc_plan_path_.Swap(&other->qgc_plan_path_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ImportQgroundcontrolMissionRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void ImportQgroundcontrolMissionResponse::InitAsDefaultInstance() {
+  ::mavsdk::rpc::mission::_ImportQgroundcontrolMissionResponse_default_instance_._instance.get_mutable()->mission_result_ = const_cast< ::mavsdk::rpc::mission::MissionResult*>(
+      ::mavsdk::rpc::mission::MissionResult::internal_default_instance());
+}
+class ImportQgroundcontrolMissionResponse::_Internal {
+ public:
+  static const ::mavsdk::rpc::mission::MissionResult& mission_result(const ImportQgroundcontrolMissionResponse* msg);
+};
+
+const ::mavsdk::rpc::mission::MissionResult&
+ImportQgroundcontrolMissionResponse::_Internal::mission_result(const ImportQgroundcontrolMissionResponse* msg) {
+  return *msg->mission_result_;
+}
+ImportQgroundcontrolMissionResponse::ImportQgroundcontrolMissionResponse()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+}
+ImportQgroundcontrolMissionResponse::ImportQgroundcontrolMissionResponse(const ImportQgroundcontrolMissionResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      mission_items_(from.mission_items_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_mission_result()) {
+    mission_result_ = new ::mavsdk::rpc::mission::MissionResult(*from.mission_result_);
+  } else {
+    mission_result_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+}
+
+void ImportQgroundcontrolMissionResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImportQgroundcontrolMissionResponse_mission_2fmission_2eproto.base);
+  mission_result_ = nullptr;
+}
+
+ImportQgroundcontrolMissionResponse::~ImportQgroundcontrolMissionResponse() {
+  // @@protoc_insertion_point(destructor:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  SharedDtor();
+}
+
+void ImportQgroundcontrolMissionResponse::SharedDtor() {
+  if (this != internal_default_instance()) delete mission_result_;
+}
+
+void ImportQgroundcontrolMissionResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ImportQgroundcontrolMissionResponse& ImportQgroundcontrolMissionResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ImportQgroundcontrolMissionResponse_mission_2fmission_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ImportQgroundcontrolMissionResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  mission_items_.Clear();
+  if (GetArenaNoVirtual() == nullptr && mission_result_ != nullptr) {
+    delete mission_result_;
+  }
+  mission_result_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+const char* ImportQgroundcontrolMissionResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .mavsdk.rpc.mission.MissionResult mission_result = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_mission_result(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .mavsdk.rpc.mission.MissionItem mission_items = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_mission_items(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* ImportQgroundcontrolMissionResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .mavsdk.rpc.mission.MissionResult mission_result = 1;
+  if (this->has_mission_result()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::mission_result(this), target, stream);
+  }
+
+  // repeated .mavsdk.rpc.mission.MissionItem mission_items = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_mission_items_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_mission_items(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  return target;
+}
+
+size_t ImportQgroundcontrolMissionResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .mavsdk.rpc.mission.MissionItem mission_items = 2;
+  total_size += 1UL * this->_internal_mission_items_size();
+  for (const auto& msg : this->mission_items_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .mavsdk.rpc.mission.MissionResult mission_result = 1;
+  if (this->has_mission_result()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *mission_result_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ImportQgroundcontrolMissionResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ImportQgroundcontrolMissionResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImportQgroundcontrolMissionResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+    MergeFrom(*source);
+  }
+}
+
+void ImportQgroundcontrolMissionResponse::MergeFrom(const ImportQgroundcontrolMissionResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  mission_items_.MergeFrom(from.mission_items_);
+  if (from.has_mission_result()) {
+    _internal_mutable_mission_result()->::mavsdk::rpc::mission::MissionResult::MergeFrom(from._internal_mission_result());
+  }
+}
+
+void ImportQgroundcontrolMissionResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ImportQgroundcontrolMissionResponse::CopyFrom(const ImportQgroundcontrolMissionResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mavsdk.rpc.mission.ImportQgroundcontrolMissionResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ImportQgroundcontrolMissionResponse::IsInitialized() const {
+  return true;
+}
+
+void ImportQgroundcontrolMissionResponse::InternalSwap(ImportQgroundcontrolMissionResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  mission_items_.InternalSwap(&other->mission_items_);
+  swap(mission_result_, other->mission_result_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ImportQgroundcontrolMissionResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 void MissionItem::InitAsDefaultInstance() {
 }
 class MissionItem::_Internal {
@@ -6107,6 +6611,12 @@ template<> PROTOBUF_NOINLINE ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissi
 }
 template<> PROTOBUF_NOINLINE ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* Arena::CreateMaybeMessage< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse >(Arena* arena) {
   return Arena::CreateInternal< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* Arena::CreateMaybeMessage< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* Arena::CreateMaybeMessage< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::mavsdk::rpc::mission::MissionItem* Arena::CreateMaybeMessage< ::mavsdk::rpc::mission::MissionItem >(Arena* arena) {
   return Arena::CreateInternal< ::mavsdk::rpc::mission::MissionItem >(arena);

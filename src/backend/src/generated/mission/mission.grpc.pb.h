@@ -185,6 +185,18 @@ class MissionService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>> PrepareAsyncSetReturnToLaunchAfterMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>>(PrepareAsyncSetReturnToLaunchAfterMissionRaw(context, request, cq));
     }
+    //
+    // Import a QGroundControl (QGC) mission plan.
+    //
+    // The method will fail if any of the imported mission items are not supported
+    // by the MAVSDK API.
+    virtual ::grpc::Status ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>> AsyncImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>>(AsyncImportQgroundcontrolMissionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>> PrepareAsyncImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>>(PrepareAsyncImportQgroundcontrolMissionRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -282,6 +294,15 @@ class MissionService final {
       virtual void SetReturnToLaunchAfterMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SetReturnToLaunchAfterMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest* request, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void SetReturnToLaunchAfterMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      //
+      // Import a QGroundControl (QGC) mission plan.
+      //
+      // The method will fail if any of the imported mission items are not supported
+      // by the MAVSDK API.
+      virtual void ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -310,6 +331,8 @@ class MissionService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::GetReturnToLaunchAfterMissionResponse>* PrepareAsyncGetReturnToLaunchAfterMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::GetReturnToLaunchAfterMissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>* AsyncSetReturnToLaunchAfterMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>* PrepareAsyncSetReturnToLaunchAfterMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>* AsyncImportQgroundcontrolMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>* PrepareAsyncImportQgroundcontrolMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -400,6 +423,13 @@ class MissionService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>> PrepareAsyncSetReturnToLaunchAfterMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>>(PrepareAsyncSetReturnToLaunchAfterMissionRaw(context, request, cq));
     }
+    ::grpc::Status ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>> AsyncImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>>(AsyncImportQgroundcontrolMissionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>> PrepareAsyncImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>>(PrepareAsyncImportQgroundcontrolMissionRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -448,6 +478,10 @@ class MissionService final {
       void SetReturnToLaunchAfterMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* response, std::function<void(::grpc::Status)>) override;
       void SetReturnToLaunchAfterMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest* request, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void SetReturnToLaunchAfterMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response, std::function<void(::grpc::Status)>) override;
+      void ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response, std::function<void(::grpc::Status)>) override;
+      void ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void ImportQgroundcontrolMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -484,6 +518,8 @@ class MissionService final {
     ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::GetReturnToLaunchAfterMissionResponse>* PrepareAsyncGetReturnToLaunchAfterMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::GetReturnToLaunchAfterMissionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>* AsyncSetReturnToLaunchAfterMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>* PrepareAsyncSetReturnToLaunchAfterMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>* AsyncImportQgroundcontrolMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>* PrepareAsyncImportQgroundcontrolMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_UploadMission_;
     const ::grpc::internal::RpcMethod rpcmethod_CancelMissionUpload_;
     const ::grpc::internal::RpcMethod rpcmethod_DownloadMission_;
@@ -496,6 +532,7 @@ class MissionService final {
     const ::grpc::internal::RpcMethod rpcmethod_SubscribeMissionProgress_;
     const ::grpc::internal::RpcMethod rpcmethod_GetReturnToLaunchAfterMission_;
     const ::grpc::internal::RpcMethod rpcmethod_SetReturnToLaunchAfterMission_;
+    const ::grpc::internal::RpcMethod rpcmethod_ImportQgroundcontrolMission_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -564,6 +601,12 @@ class MissionService final {
     // This will only take effect for the next mission upload, meaning that
     // the mission may have to be uploaded again.
     virtual ::grpc::Status SetReturnToLaunchAfterMission(::grpc::ServerContext* context, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest* request, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* response);
+    //
+    // Import a QGroundControl (QGC) mission plan.
+    //
+    // The method will fail if any of the imported mission items are not supported
+    // by the MAVSDK API.
+    virtual ::grpc::Status ImportQgroundcontrolMission(::grpc::ServerContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_UploadMission : public BaseClass {
@@ -805,7 +848,27 @@ class MissionService final {
       ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_UploadMission<WithAsyncMethod_CancelMissionUpload<WithAsyncMethod_DownloadMission<WithAsyncMethod_CancelMissionDownload<WithAsyncMethod_StartMission<WithAsyncMethod_PauseMission<WithAsyncMethod_ClearMission<WithAsyncMethod_SetCurrentMissionItemIndex<WithAsyncMethod_IsMissionFinished<WithAsyncMethod_SubscribeMissionProgress<WithAsyncMethod_GetReturnToLaunchAfterMission<WithAsyncMethod_SetReturnToLaunchAfterMission<Service > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_ImportQgroundcontrolMission : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ImportQgroundcontrolMission() {
+      ::grpc::Service::MarkMethodAsync(12);
+    }
+    ~WithAsyncMethod_ImportQgroundcontrolMission() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ImportQgroundcontrolMission(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* /*request*/, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestImportQgroundcontrolMission(::grpc::ServerContext* context, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* request, ::grpc::ServerAsyncResponseWriter< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_UploadMission<WithAsyncMethod_CancelMissionUpload<WithAsyncMethod_DownloadMission<WithAsyncMethod_CancelMissionDownload<WithAsyncMethod_StartMission<WithAsyncMethod_PauseMission<WithAsyncMethod_ClearMission<WithAsyncMethod_SetCurrentMissionItemIndex<WithAsyncMethod_IsMissionFinished<WithAsyncMethod_SubscribeMissionProgress<WithAsyncMethod_GetReturnToLaunchAfterMission<WithAsyncMethod_SetReturnToLaunchAfterMission<WithAsyncMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_UploadMission : public BaseClass {
    private:
@@ -1101,7 +1164,32 @@ class MissionService final {
     }
     virtual ::grpc::experimental::ServerUnaryReactor* SetReturnToLaunchAfterMission(::grpc::experimental::CallbackServerContext* /*context*/, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest* /*request*/, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* /*response*/) { return nullptr; }
   };
-  typedef ExperimentalWithCallbackMethod_UploadMission<ExperimentalWithCallbackMethod_CancelMissionUpload<ExperimentalWithCallbackMethod_DownloadMission<ExperimentalWithCallbackMethod_CancelMissionDownload<ExperimentalWithCallbackMethod_StartMission<ExperimentalWithCallbackMethod_PauseMission<ExperimentalWithCallbackMethod_ClearMission<ExperimentalWithCallbackMethod_SetCurrentMissionItemIndex<ExperimentalWithCallbackMethod_IsMissionFinished<ExperimentalWithCallbackMethod_SubscribeMissionProgress<ExperimentalWithCallbackMethod_GetReturnToLaunchAfterMission<ExperimentalWithCallbackMethod_SetReturnToLaunchAfterMission<Service > > > > > > > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_ImportQgroundcontrolMission : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_ImportQgroundcontrolMission() {
+      ::grpc::Service::experimental().MarkMethodCallback(12,
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>(
+          [this](::grpc::experimental::CallbackServerContext* context, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* request, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* response) { return this->ImportQgroundcontrolMission(context, request, response); }));}
+    void SetMessageAllocatorFor_ImportQgroundcontrolMission(
+        ::grpc::experimental::MessageAllocator< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>* allocator) {
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>*>(
+          ::grpc::Service::experimental().GetHandler(12))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_ImportQgroundcontrolMission() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ImportQgroundcontrolMission(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* /*request*/, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::experimental::ServerUnaryReactor* ImportQgroundcontrolMission(::grpc::experimental::CallbackServerContext* /*context*/, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* /*request*/, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* /*response*/) { return nullptr; }
+  };
+  typedef ExperimentalWithCallbackMethod_UploadMission<ExperimentalWithCallbackMethod_CancelMissionUpload<ExperimentalWithCallbackMethod_DownloadMission<ExperimentalWithCallbackMethod_CancelMissionDownload<ExperimentalWithCallbackMethod_StartMission<ExperimentalWithCallbackMethod_PauseMission<ExperimentalWithCallbackMethod_ClearMission<ExperimentalWithCallbackMethod_SetCurrentMissionItemIndex<ExperimentalWithCallbackMethod_IsMissionFinished<ExperimentalWithCallbackMethod_SubscribeMissionProgress<ExperimentalWithCallbackMethod_GetReturnToLaunchAfterMission<ExperimentalWithCallbackMethod_SetReturnToLaunchAfterMission<ExperimentalWithCallbackMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_UploadMission : public BaseClass {
    private:
@@ -1302,6 +1390,23 @@ class MissionService final {
     }
     // disable synchronous version of this method
     ::grpc::Status SetReturnToLaunchAfterMission(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest* /*request*/, ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ImportQgroundcontrolMission : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ImportQgroundcontrolMission() {
+      ::grpc::Service::MarkMethodGeneric(12);
+    }
+    ~WithGenericMethod_ImportQgroundcontrolMission() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ImportQgroundcontrolMission(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* /*request*/, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1547,6 +1652,26 @@ class MissionService final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_ImportQgroundcontrolMission : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ImportQgroundcontrolMission() {
+      ::grpc::Service::MarkMethodRaw(12);
+    }
+    ~WithRawMethod_ImportQgroundcontrolMission() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ImportQgroundcontrolMission(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* /*request*/, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestImportQgroundcontrolMission(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_UploadMission : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -1787,6 +1912,26 @@ class MissionService final {
     virtual ::grpc::experimental::ServerUnaryReactor* SetReturnToLaunchAfterMission(::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/) { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_ImportQgroundcontrolMission : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_ImportQgroundcontrolMission() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(12,
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::experimental::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ImportQgroundcontrolMission(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_ImportQgroundcontrolMission() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ImportQgroundcontrolMission(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* /*request*/, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::experimental::ServerUnaryReactor* ImportQgroundcontrolMission(::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/) { return nullptr; }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_UploadMission : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -2006,7 +2151,27 @@ class MissionService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSetReturnToLaunchAfterMission(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest,::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_UploadMission<WithStreamedUnaryMethod_CancelMissionUpload<WithStreamedUnaryMethod_DownloadMission<WithStreamedUnaryMethod_CancelMissionDownload<WithStreamedUnaryMethod_StartMission<WithStreamedUnaryMethod_PauseMission<WithStreamedUnaryMethod_ClearMission<WithStreamedUnaryMethod_SetCurrentMissionItemIndex<WithStreamedUnaryMethod_IsMissionFinished<WithStreamedUnaryMethod_GetReturnToLaunchAfterMission<WithStreamedUnaryMethod_SetReturnToLaunchAfterMission<Service > > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ImportQgroundcontrolMission : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ImportQgroundcontrolMission() {
+      ::grpc::Service::MarkMethodStreamed(12,
+        new ::grpc::internal::StreamedUnaryHandler< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>(std::bind(&WithStreamedUnaryMethod_ImportQgroundcontrolMission<BaseClass>::StreamedImportQgroundcontrolMission, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_ImportQgroundcontrolMission() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ImportQgroundcontrolMission(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* /*request*/, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedImportQgroundcontrolMission(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest,::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_UploadMission<WithStreamedUnaryMethod_CancelMissionUpload<WithStreamedUnaryMethod_DownloadMission<WithStreamedUnaryMethod_CancelMissionDownload<WithStreamedUnaryMethod_StartMission<WithStreamedUnaryMethod_PauseMission<WithStreamedUnaryMethod_ClearMission<WithStreamedUnaryMethod_SetCurrentMissionItemIndex<WithStreamedUnaryMethod_IsMissionFinished<WithStreamedUnaryMethod_GetReturnToLaunchAfterMission<WithStreamedUnaryMethod_SetReturnToLaunchAfterMission<WithStreamedUnaryMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_SubscribeMissionProgress : public BaseClass {
    private:
@@ -2028,7 +2193,7 @@ class MissionService final {
     virtual ::grpc::Status StreamedSubscribeMissionProgress(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::mavsdk::rpc::mission::SubscribeMissionProgressRequest,::mavsdk::rpc::mission::MissionProgressResponse>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_SubscribeMissionProgress<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_UploadMission<WithStreamedUnaryMethod_CancelMissionUpload<WithStreamedUnaryMethod_DownloadMission<WithStreamedUnaryMethod_CancelMissionDownload<WithStreamedUnaryMethod_StartMission<WithStreamedUnaryMethod_PauseMission<WithStreamedUnaryMethod_ClearMission<WithStreamedUnaryMethod_SetCurrentMissionItemIndex<WithStreamedUnaryMethod_IsMissionFinished<WithSplitStreamingMethod_SubscribeMissionProgress<WithStreamedUnaryMethod_GetReturnToLaunchAfterMission<WithStreamedUnaryMethod_SetReturnToLaunchAfterMission<Service > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_UploadMission<WithStreamedUnaryMethod_CancelMissionUpload<WithStreamedUnaryMethod_DownloadMission<WithStreamedUnaryMethod_CancelMissionDownload<WithStreamedUnaryMethod_StartMission<WithStreamedUnaryMethod_PauseMission<WithStreamedUnaryMethod_ClearMission<WithStreamedUnaryMethod_SetCurrentMissionItemIndex<WithStreamedUnaryMethod_IsMissionFinished<WithSplitStreamingMethod_SubscribeMissionProgress<WithStreamedUnaryMethod_GetReturnToLaunchAfterMission<WithStreamedUnaryMethod_SetReturnToLaunchAfterMission<WithStreamedUnaryMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace mission

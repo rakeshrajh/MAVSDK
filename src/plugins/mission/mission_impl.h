@@ -24,12 +24,16 @@ public:
     void enable() override;
     void disable() override;
 
+    Mission::Result upload_mission(const std::vector<Mission::MissionItem>& mission_items);
+
     void upload_mission_async(
         const std::vector<Mission::MissionItem>& mission_items,
         const Mission::result_callback_t& callback);
-    void upload_mission_cancel();
 
-    void download_mission_async(const Mission::mission_items_and_result_callback_t& callback);
+    void cancel_mission_upload_async(const Mission::result_callback_t callback);
+    Mission::Result cancel_mission_upload();
+
+    void download_mission_async(const Mission::download_mission_callback_t& callback);
     void download_mission_cancel();
 
     void set_return_to_launch_after_mission(bool enable_rtl);
@@ -48,10 +52,10 @@ public:
     int current_mission_item() const;
     int total_mission_items() const;
 
-    void subscribe_progress(Mission::progress_callback_t callback);
+    void subscribe_mission_progress(Mission::mission_progress_callback_t callback);
 
     static Mission::Result import_qgroundcontrol_mission(
-        Mission::mission_items_t& mission_items, const std::string& qgc_plan_file);
+        std::vector<Mission::MissionItem>& mission_items, const std::string& qgc_plan_file);
     // Non-copyable
     MissionImpl(const MissionImpl&) = delete;
     const MissionImpl& operator=(const MissionImpl&) = delete;
@@ -83,13 +87,13 @@ private:
     static Mission::Result convert_result(MAVLinkMissionTransfer::Result result);
 
     static Mission::Result import_mission_items(
-        Mission::mission_items_t& all_mission_items, const Json::Value& qgc_plan_json);
+        std::vector<Mission::MissionItem>& all_mission_items, const Json::Value& qgc_plan_json);
 
     static Mission::Result build_mission_items(
         MAV_CMD command,
         std::vector<double> params,
         Mission::MissionItem& new_mission_item,
-        Mission::mission_items_t& all_mission_items);
+        std::vector<Mission::MissionItem>& all_mission_items);
 
     struct MissionData {
         mutable std::recursive_mutex mutex{};
@@ -100,8 +104,8 @@ private:
         int next_mission_item_to_download{-1};
         int last_mission_item_to_upload{-1};
         Mission::result_callback_t result_callback{nullptr};
-        Mission::mission_items_and_result_callback_t mission_items_and_result_callback{nullptr};
-        Mission::progress_callback_t progress_callback{nullptr};
+        Mission::download_mission_callback_t download_mission_callback{nullptr};
+        Mission::mission_progress_callback_t mission_progress_callback{nullptr};
         int last_current_reported_mission_item{-1};
         int last_total_reported_mission_item{-1};
         std::weak_ptr<MAVLinkMissionTransfer::WorkItem> last_upload{};
