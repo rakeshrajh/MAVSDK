@@ -221,17 +221,17 @@ public:
         return grpc::Status::OK;
     }
 
-    grpc::Status SetCurrentMissionItemIndex(
+    grpc::Status SetCurrentMissionItem(
         grpc::ServerContext* /* context */,
-        const rpc::mission::SetCurrentMissionItemIndexRequest* request,
-        rpc::mission::SetCurrentMissionItemIndexResponse* response) override
+        const rpc::mission::SetCurrentMissionItemRequest* request,
+        rpc::mission::SetCurrentMissionItemResponse* response) override
     {
         if (request == nullptr) {
-            LogWarn() << "SetCurrentMissionItemIndex sent with a null request! Ignoring...";
+            LogWarn() << "SetCurrentMissionItem sent with a null request! Ignoring...";
             return grpc::Status::OK;
         }
 
-        auto result = _mission.set_current_mission_item_index(request->index());
+        auto result = _mission.set_current_mission_item(request->index());
 
         if (response != nullptr) {
             fillResponseWithResult(response, result);

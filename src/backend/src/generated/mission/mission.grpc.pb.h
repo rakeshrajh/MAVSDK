@@ -134,12 +134,12 @@ class MissionService final {
     //
     // Note that this is not necessarily true for general missions using MAVLink if loop counters
     // are used.
-    virtual ::grpc::Status SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>> AsyncSetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>>(AsyncSetCurrentMissionItemIndexRaw(context, request, cq));
+    virtual ::grpc::Status SetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>> AsyncSetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>>(AsyncSetCurrentMissionItemRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>> PrepareAsyncSetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>>(PrepareAsyncSetCurrentMissionItemIndexRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>> PrepareAsyncSetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>>(PrepareAsyncSetCurrentMissionItemRaw(context, request, cq));
     }
     //
     // Check if the mission has been finished.
@@ -263,10 +263,10 @@ class MissionService final {
       //
       // Note that this is not necessarily true for general missions using MAVLink if loop counters
       // are used.
-      virtual void SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void SetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetCurrentMissionItem(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void SetCurrentMissionItem(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       //
       // Check if the mission has been finished.
       virtual void IsMissionFinished(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest* request, ::mavsdk::rpc::mission::IsMissionFinishedResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -320,8 +320,8 @@ class MissionService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::PauseMissionResponse>* PrepareAsyncPauseMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::PauseMissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::ClearMissionResponse>* AsyncClearMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ClearMissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::ClearMissionResponse>* PrepareAsyncClearMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ClearMissionRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>* AsyncSetCurrentMissionItemIndexRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>* PrepareAsyncSetCurrentMissionItemIndexRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>* AsyncSetCurrentMissionItemRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>* PrepareAsyncSetCurrentMissionItemRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::IsMissionFinishedResponse>* AsyncIsMissionFinishedRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mavsdk::rpc::mission::IsMissionFinishedResponse>* PrepareAsyncIsMissionFinishedRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientReaderInterface< ::mavsdk::rpc::mission::MissionProgressResponse>* SubscribeMissionProgressRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SubscribeMissionProgressRequest& request) = 0;
@@ -386,12 +386,12 @@ class MissionService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ClearMissionResponse>> PrepareAsyncClearMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ClearMissionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ClearMissionResponse>>(PrepareAsyncClearMissionRaw(context, request, cq));
     }
-    ::grpc::Status SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>> AsyncSetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>>(AsyncSetCurrentMissionItemIndexRaw(context, request, cq));
+    ::grpc::Status SetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>> AsyncSetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>>(AsyncSetCurrentMissionItemRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>> PrepareAsyncSetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>>(PrepareAsyncSetCurrentMissionItemIndexRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>> PrepareAsyncSetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>>(PrepareAsyncSetCurrentMissionItemRaw(context, request, cq));
     }
     ::grpc::Status IsMissionFinished(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest& request, ::mavsdk::rpc::mission::IsMissionFinishedResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::IsMissionFinishedResponse>> AsyncIsMissionFinished(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest& request, ::grpc::CompletionQueue* cq) {
@@ -461,10 +461,10 @@ class MissionService final {
       void ClearMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::ClearMissionResponse* response, std::function<void(::grpc::Status)>) override;
       void ClearMission(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ClearMissionRequest* request, ::mavsdk::rpc::mission::ClearMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void ClearMission(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::ClearMissionResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response, std::function<void(::grpc::Status)>) override;
-      void SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response, std::function<void(::grpc::Status)>) override;
-      void SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void SetCurrentMissionItemIndex(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void SetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response, std::function<void(::grpc::Status)>) override;
+      void SetCurrentMissionItem(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response, std::function<void(::grpc::Status)>) override;
+      void SetCurrentMissionItem(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void SetCurrentMissionItem(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void IsMissionFinished(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest* request, ::mavsdk::rpc::mission::IsMissionFinishedResponse* response, std::function<void(::grpc::Status)>) override;
       void IsMissionFinished(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::mavsdk::rpc::mission::IsMissionFinishedResponse* response, std::function<void(::grpc::Status)>) override;
       void IsMissionFinished(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest* request, ::mavsdk::rpc::mission::IsMissionFinishedResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
@@ -507,8 +507,8 @@ class MissionService final {
     ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::PauseMissionResponse>* PrepareAsyncPauseMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::PauseMissionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ClearMissionResponse>* AsyncClearMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ClearMissionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::ClearMissionResponse>* PrepareAsyncClearMissionRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::ClearMissionRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>* AsyncSetCurrentMissionItemIndexRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>* PrepareAsyncSetCurrentMissionItemIndexRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>* AsyncSetCurrentMissionItemRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>* PrepareAsyncSetCurrentMissionItemRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::IsMissionFinishedResponse>* AsyncIsMissionFinishedRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mavsdk::rpc::mission::IsMissionFinishedResponse>* PrepareAsyncIsMissionFinishedRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientReader< ::mavsdk::rpc::mission::MissionProgressResponse>* SubscribeMissionProgressRaw(::grpc::ClientContext* context, const ::mavsdk::rpc::mission::SubscribeMissionProgressRequest& request) override;
@@ -527,7 +527,7 @@ class MissionService final {
     const ::grpc::internal::RpcMethod rpcmethod_StartMission_;
     const ::grpc::internal::RpcMethod rpcmethod_PauseMission_;
     const ::grpc::internal::RpcMethod rpcmethod_ClearMission_;
-    const ::grpc::internal::RpcMethod rpcmethod_SetCurrentMissionItemIndex_;
+    const ::grpc::internal::RpcMethod rpcmethod_SetCurrentMissionItem_;
     const ::grpc::internal::RpcMethod rpcmethod_IsMissionFinished_;
     const ::grpc::internal::RpcMethod rpcmethod_SubscribeMissionProgress_;
     const ::grpc::internal::RpcMethod rpcmethod_GetReturnToLaunchAfterMission_;
@@ -582,7 +582,7 @@ class MissionService final {
     //
     // Note that this is not necessarily true for general missions using MAVLink if loop counters
     // are used.
-    virtual ::grpc::Status SetCurrentMissionItemIndex(::grpc::ServerContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response);
+    virtual ::grpc::Status SetCurrentMissionItem(::grpc::ServerContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response);
     //
     // Check if the mission has been finished.
     virtual ::grpc::Status IsMissionFinished(::grpc::ServerContext* context, const ::mavsdk::rpc::mission::IsMissionFinishedRequest* request, ::mavsdk::rpc::mission::IsMissionFinishedResponse* response);
@@ -749,22 +749,22 @@ class MissionService final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_SetCurrentMissionItemIndex : public BaseClass {
+  class WithAsyncMethod_SetCurrentMissionItem : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_SetCurrentMissionItemIndex() {
+    WithAsyncMethod_SetCurrentMissionItem() {
       ::grpc::Service::MarkMethodAsync(7);
     }
-    ~WithAsyncMethod_SetCurrentMissionItemIndex() override {
+    ~WithAsyncMethod_SetCurrentMissionItem() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetCurrentMissionItemIndex(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* /*response*/) override {
+    ::grpc::Status SetCurrentMissionItem(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetCurrentMissionItemIndex(::grpc::ServerContext* context, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* request, ::grpc::ServerAsyncResponseWriter< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetCurrentMissionItem(::grpc::ServerContext* context, ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* request, ::grpc::ServerAsyncResponseWriter< ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -868,7 +868,7 @@ class MissionService final {
       ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_UploadMission<WithAsyncMethod_CancelMissionUpload<WithAsyncMethod_DownloadMission<WithAsyncMethod_CancelMissionDownload<WithAsyncMethod_StartMission<WithAsyncMethod_PauseMission<WithAsyncMethod_ClearMission<WithAsyncMethod_SetCurrentMissionItemIndex<WithAsyncMethod_IsMissionFinished<WithAsyncMethod_SubscribeMissionProgress<WithAsyncMethod_GetReturnToLaunchAfterMission<WithAsyncMethod_SetReturnToLaunchAfterMission<WithAsyncMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_UploadMission<WithAsyncMethod_CancelMissionUpload<WithAsyncMethod_DownloadMission<WithAsyncMethod_CancelMissionDownload<WithAsyncMethod_StartMission<WithAsyncMethod_PauseMission<WithAsyncMethod_ClearMission<WithAsyncMethod_SetCurrentMissionItem<WithAsyncMethod_IsMissionFinished<WithAsyncMethod_SubscribeMissionProgress<WithAsyncMethod_GetReturnToLaunchAfterMission<WithAsyncMethod_SetReturnToLaunchAfterMission<WithAsyncMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_UploadMission : public BaseClass {
    private:
@@ -1045,29 +1045,29 @@ class MissionService final {
     virtual ::grpc::experimental::ServerUnaryReactor* ClearMission(::grpc::experimental::CallbackServerContext* /*context*/, const ::mavsdk::rpc::mission::ClearMissionRequest* /*request*/, ::mavsdk::rpc::mission::ClearMissionResponse* /*response*/) { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SetCurrentMissionItemIndex : public BaseClass {
+  class ExperimentalWithCallbackMethod_SetCurrentMissionItem : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SetCurrentMissionItemIndex() {
+    ExperimentalWithCallbackMethod_SetCurrentMissionItem() {
       ::grpc::Service::experimental().MarkMethodCallback(7,
-        new ::grpc_impl::internal::CallbackUnaryHandler< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>(
-          [this](::grpc::experimental::CallbackServerContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* response) { return this->SetCurrentMissionItemIndex(context, request, response); }));}
-    void SetMessageAllocatorFor_SetCurrentMissionItemIndex(
-        ::grpc::experimental::MessageAllocator< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>* allocator) {
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>*>(
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::mavsdk::rpc::mission::SetCurrentMissionItemRequest, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>(
+          [this](::grpc::experimental::CallbackServerContext* context, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* request, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* response) { return this->SetCurrentMissionItem(context, request, response); }));}
+    void SetMessageAllocatorFor_SetCurrentMissionItem(
+        ::grpc::experimental::MessageAllocator< ::mavsdk::rpc::mission::SetCurrentMissionItemRequest, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>* allocator) {
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::mavsdk::rpc::mission::SetCurrentMissionItemRequest, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>*>(
           ::grpc::Service::experimental().GetHandler(7))
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_SetCurrentMissionItemIndex() override {
+    ~ExperimentalWithCallbackMethod_SetCurrentMissionItem() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetCurrentMissionItemIndex(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* /*response*/) override {
+    ::grpc::Status SetCurrentMissionItem(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerUnaryReactor* SetCurrentMissionItemIndex(::grpc::experimental::CallbackServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* /*response*/) { return nullptr; }
+    virtual ::grpc::experimental::ServerUnaryReactor* SetCurrentMissionItem(::grpc::experimental::CallbackServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* /*response*/) { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_IsMissionFinished : public BaseClass {
@@ -1189,7 +1189,7 @@ class MissionService final {
     }
     virtual ::grpc::experimental::ServerUnaryReactor* ImportQgroundcontrolMission(::grpc::experimental::CallbackServerContext* /*context*/, const ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest* /*request*/, ::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse* /*response*/) { return nullptr; }
   };
-  typedef ExperimentalWithCallbackMethod_UploadMission<ExperimentalWithCallbackMethod_CancelMissionUpload<ExperimentalWithCallbackMethod_DownloadMission<ExperimentalWithCallbackMethod_CancelMissionDownload<ExperimentalWithCallbackMethod_StartMission<ExperimentalWithCallbackMethod_PauseMission<ExperimentalWithCallbackMethod_ClearMission<ExperimentalWithCallbackMethod_SetCurrentMissionItemIndex<ExperimentalWithCallbackMethod_IsMissionFinished<ExperimentalWithCallbackMethod_SubscribeMissionProgress<ExperimentalWithCallbackMethod_GetReturnToLaunchAfterMission<ExperimentalWithCallbackMethod_SetReturnToLaunchAfterMission<ExperimentalWithCallbackMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_UploadMission<ExperimentalWithCallbackMethod_CancelMissionUpload<ExperimentalWithCallbackMethod_DownloadMission<ExperimentalWithCallbackMethod_CancelMissionDownload<ExperimentalWithCallbackMethod_StartMission<ExperimentalWithCallbackMethod_PauseMission<ExperimentalWithCallbackMethod_ClearMission<ExperimentalWithCallbackMethod_SetCurrentMissionItem<ExperimentalWithCallbackMethod_IsMissionFinished<ExperimentalWithCallbackMethod_SubscribeMissionProgress<ExperimentalWithCallbackMethod_GetReturnToLaunchAfterMission<ExperimentalWithCallbackMethod_SetReturnToLaunchAfterMission<ExperimentalWithCallbackMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_UploadMission : public BaseClass {
    private:
@@ -1310,18 +1310,18 @@ class MissionService final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_SetCurrentMissionItemIndex : public BaseClass {
+  class WithGenericMethod_SetCurrentMissionItem : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_SetCurrentMissionItemIndex() {
+    WithGenericMethod_SetCurrentMissionItem() {
       ::grpc::Service::MarkMethodGeneric(7);
     }
-    ~WithGenericMethod_SetCurrentMissionItemIndex() override {
+    ~WithGenericMethod_SetCurrentMissionItem() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetCurrentMissionItemIndex(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* /*response*/) override {
+    ::grpc::Status SetCurrentMissionItem(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1552,22 +1552,22 @@ class MissionService final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_SetCurrentMissionItemIndex : public BaseClass {
+  class WithRawMethod_SetCurrentMissionItem : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_SetCurrentMissionItemIndex() {
+    WithRawMethod_SetCurrentMissionItem() {
       ::grpc::Service::MarkMethodRaw(7);
     }
-    ~WithRawMethod_SetCurrentMissionItemIndex() override {
+    ~WithRawMethod_SetCurrentMissionItem() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetCurrentMissionItemIndex(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* /*response*/) override {
+    ::grpc::Status SetCurrentMissionItem(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetCurrentMissionItemIndex(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetCurrentMissionItem(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1812,24 +1812,24 @@ class MissionService final {
     virtual ::grpc::experimental::ServerUnaryReactor* ClearMission(::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/) { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SetCurrentMissionItemIndex : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_SetCurrentMissionItem : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SetCurrentMissionItemIndex() {
+    ExperimentalWithRawCallbackMethod_SetCurrentMissionItem() {
       ::grpc::Service::experimental().MarkMethodRawCallback(7,
         new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::experimental::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetCurrentMissionItemIndex(context, request, response); }));
+          [this](::grpc::experimental::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetCurrentMissionItem(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SetCurrentMissionItemIndex() override {
+    ~ExperimentalWithRawCallbackMethod_SetCurrentMissionItem() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetCurrentMissionItemIndex(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* /*response*/) override {
+    ::grpc::Status SetCurrentMissionItem(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerUnaryReactor* SetCurrentMissionItemIndex(::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/) { return nullptr; }
+    virtual ::grpc::experimental::ServerUnaryReactor* SetCurrentMissionItem(::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/) { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_IsMissionFinished : public BaseClass {
@@ -2072,24 +2072,24 @@ class MissionService final {
     virtual ::grpc::Status StreamedClearMission(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mavsdk::rpc::mission::ClearMissionRequest,::mavsdk::rpc::mission::ClearMissionResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_SetCurrentMissionItemIndex : public BaseClass {
+  class WithStreamedUnaryMethod_SetCurrentMissionItem : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_SetCurrentMissionItemIndex() {
+    WithStreamedUnaryMethod_SetCurrentMissionItem() {
       ::grpc::Service::MarkMethodStreamed(7,
-        new ::grpc::internal::StreamedUnaryHandler< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>(std::bind(&WithStreamedUnaryMethod_SetCurrentMissionItemIndex<BaseClass>::StreamedSetCurrentMissionItemIndex, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::mavsdk::rpc::mission::SetCurrentMissionItemRequest, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse>(std::bind(&WithStreamedUnaryMethod_SetCurrentMissionItem<BaseClass>::StreamedSetCurrentMissionItem, this, std::placeholders::_1, std::placeholders::_2)));
     }
-    ~WithStreamedUnaryMethod_SetCurrentMissionItemIndex() override {
+    ~WithStreamedUnaryMethod_SetCurrentMissionItem() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetCurrentMissionItemIndex(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* /*response*/) override {
+    ::grpc::Status SetCurrentMissionItem(::grpc::ServerContext* /*context*/, const ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* /*request*/, ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedSetCurrentMissionItemIndex(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest,::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSetCurrentMissionItem(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mavsdk::rpc::mission::SetCurrentMissionItemRequest,::mavsdk::rpc::mission::SetCurrentMissionItemResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_IsMissionFinished : public BaseClass {
@@ -2171,7 +2171,7 @@ class MissionService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedImportQgroundcontrolMission(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mavsdk::rpc::mission::ImportQgroundcontrolMissionRequest,::mavsdk::rpc::mission::ImportQgroundcontrolMissionResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_UploadMission<WithStreamedUnaryMethod_CancelMissionUpload<WithStreamedUnaryMethod_DownloadMission<WithStreamedUnaryMethod_CancelMissionDownload<WithStreamedUnaryMethod_StartMission<WithStreamedUnaryMethod_PauseMission<WithStreamedUnaryMethod_ClearMission<WithStreamedUnaryMethod_SetCurrentMissionItemIndex<WithStreamedUnaryMethod_IsMissionFinished<WithStreamedUnaryMethod_GetReturnToLaunchAfterMission<WithStreamedUnaryMethod_SetReturnToLaunchAfterMission<WithStreamedUnaryMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_UploadMission<WithStreamedUnaryMethod_CancelMissionUpload<WithStreamedUnaryMethod_DownloadMission<WithStreamedUnaryMethod_CancelMissionDownload<WithStreamedUnaryMethod_StartMission<WithStreamedUnaryMethod_PauseMission<WithStreamedUnaryMethod_ClearMission<WithStreamedUnaryMethod_SetCurrentMissionItem<WithStreamedUnaryMethod_IsMissionFinished<WithStreamedUnaryMethod_GetReturnToLaunchAfterMission<WithStreamedUnaryMethod_SetReturnToLaunchAfterMission<WithStreamedUnaryMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_SubscribeMissionProgress : public BaseClass {
    private:
@@ -2193,7 +2193,7 @@ class MissionService final {
     virtual ::grpc::Status StreamedSubscribeMissionProgress(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::mavsdk::rpc::mission::SubscribeMissionProgressRequest,::mavsdk::rpc::mission::MissionProgressResponse>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_SubscribeMissionProgress<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_UploadMission<WithStreamedUnaryMethod_CancelMissionUpload<WithStreamedUnaryMethod_DownloadMission<WithStreamedUnaryMethod_CancelMissionDownload<WithStreamedUnaryMethod_StartMission<WithStreamedUnaryMethod_PauseMission<WithStreamedUnaryMethod_ClearMission<WithStreamedUnaryMethod_SetCurrentMissionItemIndex<WithStreamedUnaryMethod_IsMissionFinished<WithSplitStreamingMethod_SubscribeMissionProgress<WithStreamedUnaryMethod_GetReturnToLaunchAfterMission<WithStreamedUnaryMethod_SetReturnToLaunchAfterMission<WithStreamedUnaryMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_UploadMission<WithStreamedUnaryMethod_CancelMissionUpload<WithStreamedUnaryMethod_DownloadMission<WithStreamedUnaryMethod_CancelMissionDownload<WithStreamedUnaryMethod_StartMission<WithStreamedUnaryMethod_PauseMission<WithStreamedUnaryMethod_ClearMission<WithStreamedUnaryMethod_SetCurrentMissionItem<WithStreamedUnaryMethod_IsMissionFinished<WithSplitStreamingMethod_SubscribeMissionProgress<WithStreamedUnaryMethod_GetReturnToLaunchAfterMission<WithStreamedUnaryMethod_SetReturnToLaunchAfterMission<WithStreamedUnaryMethod_ImportQgroundcontrolMission<Service > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace mission

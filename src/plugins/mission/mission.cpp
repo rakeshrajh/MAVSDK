@@ -85,14 +85,14 @@ Mission::Result Mission::clear_mission() const
     return _impl->clear_mission();
 }
 
-void Mission::set_current_mission_item_index_async(int32_t index, const result_callback_t callback)
+void Mission::set_current_mission_item_async(int32_t index, const result_callback_t callback)
 {
-    _impl->set_current_mission_item_index_async(index, callback);
+    _impl->set_current_mission_item_async(index, callback);
 }
 
-Mission::Result Mission::set_current_mission_item_index(int32_t index) const
+Mission::Result Mission::set_current_mission_item(int32_t index) const
 {
-    return _impl->set_current_mission_item_index(index);
+    return _impl->set_current_mission_item(index);
 }
 
 void Mission::is_mission_finished_async(const is_mission_finished_callback_t callback)

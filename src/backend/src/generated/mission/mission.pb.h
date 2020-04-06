@@ -118,12 +118,12 @@ extern PauseMissionRequestDefaultTypeInternal _PauseMissionRequest_default_insta
 class PauseMissionResponse;
 class PauseMissionResponseDefaultTypeInternal;
 extern PauseMissionResponseDefaultTypeInternal _PauseMissionResponse_default_instance_;
-class SetCurrentMissionItemIndexRequest;
-class SetCurrentMissionItemIndexRequestDefaultTypeInternal;
-extern SetCurrentMissionItemIndexRequestDefaultTypeInternal _SetCurrentMissionItemIndexRequest_default_instance_;
-class SetCurrentMissionItemIndexResponse;
-class SetCurrentMissionItemIndexResponseDefaultTypeInternal;
-extern SetCurrentMissionItemIndexResponseDefaultTypeInternal _SetCurrentMissionItemIndexResponse_default_instance_;
+class SetCurrentMissionItemRequest;
+class SetCurrentMissionItemRequestDefaultTypeInternal;
+extern SetCurrentMissionItemRequestDefaultTypeInternal _SetCurrentMissionItemRequest_default_instance_;
+class SetCurrentMissionItemResponse;
+class SetCurrentMissionItemResponseDefaultTypeInternal;
+extern SetCurrentMissionItemResponseDefaultTypeInternal _SetCurrentMissionItemResponse_default_instance_;
 class SetReturnToLaunchAfterMissionRequest;
 class SetReturnToLaunchAfterMissionRequestDefaultTypeInternal;
 extern SetReturnToLaunchAfterMissionRequestDefaultTypeInternal _SetReturnToLaunchAfterMissionRequest_default_instance_;
@@ -169,8 +169,8 @@ template<> ::mavsdk::rpc::mission::MissionProgressResponse* Arena::CreateMaybeMe
 template<> ::mavsdk::rpc::mission::MissionResult* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::MissionResult>(Arena*);
 template<> ::mavsdk::rpc::mission::PauseMissionRequest* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::PauseMissionRequest>(Arena*);
 template<> ::mavsdk::rpc::mission::PauseMissionResponse* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::PauseMissionResponse>(Arena*);
-template<> ::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::SetCurrentMissionItemIndexRequest>(Arena*);
-template<> ::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::SetCurrentMissionItemIndexResponse>(Arena*);
+template<> ::mavsdk::rpc::mission::SetCurrentMissionItemRequest* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::SetCurrentMissionItemRequest>(Arena*);
+template<> ::mavsdk::rpc::mission::SetCurrentMissionItemResponse* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::SetCurrentMissionItemResponse>(Arena*);
 template<> ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionRequest>(Arena*);
 template<> ::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::SetReturnToLaunchAfterMissionResponse>(Arena*);
 template<> ::mavsdk::rpc::mission::StartMissionRequest* Arena::CreateMaybeMessage<::mavsdk::rpc::mission::StartMissionRequest>(Arena*);
@@ -1997,23 +1997,23 @@ class ClearMissionResponse :
 };
 // -------------------------------------------------------------------
 
-class SetCurrentMissionItemIndexRequest :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mavsdk.rpc.mission.SetCurrentMissionItemIndexRequest) */ {
+class SetCurrentMissionItemRequest :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mavsdk.rpc.mission.SetCurrentMissionItemRequest) */ {
  public:
-  SetCurrentMissionItemIndexRequest();
-  virtual ~SetCurrentMissionItemIndexRequest();
+  SetCurrentMissionItemRequest();
+  virtual ~SetCurrentMissionItemRequest();
 
-  SetCurrentMissionItemIndexRequest(const SetCurrentMissionItemIndexRequest& from);
-  SetCurrentMissionItemIndexRequest(SetCurrentMissionItemIndexRequest&& from) noexcept
-    : SetCurrentMissionItemIndexRequest() {
+  SetCurrentMissionItemRequest(const SetCurrentMissionItemRequest& from);
+  SetCurrentMissionItemRequest(SetCurrentMissionItemRequest&& from) noexcept
+    : SetCurrentMissionItemRequest() {
     *this = ::std::move(from);
   }
 
-  inline SetCurrentMissionItemIndexRequest& operator=(const SetCurrentMissionItemIndexRequest& from) {
+  inline SetCurrentMissionItemRequest& operator=(const SetCurrentMissionItemRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SetCurrentMissionItemIndexRequest& operator=(SetCurrentMissionItemIndexRequest&& from) noexcept {
+  inline SetCurrentMissionItemRequest& operator=(SetCurrentMissionItemRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2031,37 +2031,37 @@ class SetCurrentMissionItemIndexRequest :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const SetCurrentMissionItemIndexRequest& default_instance();
+  static const SetCurrentMissionItemRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const SetCurrentMissionItemIndexRequest* internal_default_instance() {
-    return reinterpret_cast<const SetCurrentMissionItemIndexRequest*>(
-               &_SetCurrentMissionItemIndexRequest_default_instance_);
+  static inline const SetCurrentMissionItemRequest* internal_default_instance() {
+    return reinterpret_cast<const SetCurrentMissionItemRequest*>(
+               &_SetCurrentMissionItemRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     14;
 
-  friend void swap(SetCurrentMissionItemIndexRequest& a, SetCurrentMissionItemIndexRequest& b) {
+  friend void swap(SetCurrentMissionItemRequest& a, SetCurrentMissionItemRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(SetCurrentMissionItemIndexRequest* other) {
+  inline void Swap(SetCurrentMissionItemRequest* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline SetCurrentMissionItemIndexRequest* New() const final {
-    return CreateMaybeMessage<SetCurrentMissionItemIndexRequest>(nullptr);
+  inline SetCurrentMissionItemRequest* New() const final {
+    return CreateMaybeMessage<SetCurrentMissionItemRequest>(nullptr);
   }
 
-  SetCurrentMissionItemIndexRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<SetCurrentMissionItemIndexRequest>(arena);
+  SetCurrentMissionItemRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SetCurrentMissionItemRequest>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const SetCurrentMissionItemIndexRequest& from);
-  void MergeFrom(const SetCurrentMissionItemIndexRequest& from);
+  void CopyFrom(const SetCurrentMissionItemRequest& from);
+  void MergeFrom(const SetCurrentMissionItemRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2075,10 +2075,10 @@ class SetCurrentMissionItemIndexRequest :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SetCurrentMissionItemIndexRequest* other);
+  void InternalSwap(SetCurrentMissionItemRequest* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "mavsdk.rpc.mission.SetCurrentMissionItemIndexRequest";
+    return "mavsdk.rpc.mission.SetCurrentMissionItemRequest";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -2114,7 +2114,7 @@ class SetCurrentMissionItemIndexRequest :
   void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:mavsdk.rpc.mission.SetCurrentMissionItemIndexRequest)
+  // @@protoc_insertion_point(class_scope:mavsdk.rpc.mission.SetCurrentMissionItemRequest)
  private:
   class _Internal;
 
@@ -2125,23 +2125,23 @@ class SetCurrentMissionItemIndexRequest :
 };
 // -------------------------------------------------------------------
 
-class SetCurrentMissionItemIndexResponse :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mavsdk.rpc.mission.SetCurrentMissionItemIndexResponse) */ {
+class SetCurrentMissionItemResponse :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mavsdk.rpc.mission.SetCurrentMissionItemResponse) */ {
  public:
-  SetCurrentMissionItemIndexResponse();
-  virtual ~SetCurrentMissionItemIndexResponse();
+  SetCurrentMissionItemResponse();
+  virtual ~SetCurrentMissionItemResponse();
 
-  SetCurrentMissionItemIndexResponse(const SetCurrentMissionItemIndexResponse& from);
-  SetCurrentMissionItemIndexResponse(SetCurrentMissionItemIndexResponse&& from) noexcept
-    : SetCurrentMissionItemIndexResponse() {
+  SetCurrentMissionItemResponse(const SetCurrentMissionItemResponse& from);
+  SetCurrentMissionItemResponse(SetCurrentMissionItemResponse&& from) noexcept
+    : SetCurrentMissionItemResponse() {
     *this = ::std::move(from);
   }
 
-  inline SetCurrentMissionItemIndexResponse& operator=(const SetCurrentMissionItemIndexResponse& from) {
+  inline SetCurrentMissionItemResponse& operator=(const SetCurrentMissionItemResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SetCurrentMissionItemIndexResponse& operator=(SetCurrentMissionItemIndexResponse&& from) noexcept {
+  inline SetCurrentMissionItemResponse& operator=(SetCurrentMissionItemResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2159,37 +2159,37 @@ class SetCurrentMissionItemIndexResponse :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const SetCurrentMissionItemIndexResponse& default_instance();
+  static const SetCurrentMissionItemResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const SetCurrentMissionItemIndexResponse* internal_default_instance() {
-    return reinterpret_cast<const SetCurrentMissionItemIndexResponse*>(
-               &_SetCurrentMissionItemIndexResponse_default_instance_);
+  static inline const SetCurrentMissionItemResponse* internal_default_instance() {
+    return reinterpret_cast<const SetCurrentMissionItemResponse*>(
+               &_SetCurrentMissionItemResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     15;
 
-  friend void swap(SetCurrentMissionItemIndexResponse& a, SetCurrentMissionItemIndexResponse& b) {
+  friend void swap(SetCurrentMissionItemResponse& a, SetCurrentMissionItemResponse& b) {
     a.Swap(&b);
   }
-  inline void Swap(SetCurrentMissionItemIndexResponse* other) {
+  inline void Swap(SetCurrentMissionItemResponse* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline SetCurrentMissionItemIndexResponse* New() const final {
-    return CreateMaybeMessage<SetCurrentMissionItemIndexResponse>(nullptr);
+  inline SetCurrentMissionItemResponse* New() const final {
+    return CreateMaybeMessage<SetCurrentMissionItemResponse>(nullptr);
   }
 
-  SetCurrentMissionItemIndexResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<SetCurrentMissionItemIndexResponse>(arena);
+  SetCurrentMissionItemResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SetCurrentMissionItemResponse>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const SetCurrentMissionItemIndexResponse& from);
-  void MergeFrom(const SetCurrentMissionItemIndexResponse& from);
+  void CopyFrom(const SetCurrentMissionItemResponse& from);
+  void MergeFrom(const SetCurrentMissionItemResponse& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2203,10 +2203,10 @@ class SetCurrentMissionItemIndexResponse :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SetCurrentMissionItemIndexResponse* other);
+  void InternalSwap(SetCurrentMissionItemResponse* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "mavsdk.rpc.mission.SetCurrentMissionItemIndexResponse";
+    return "mavsdk.rpc.mission.SetCurrentMissionItemResponse";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -2248,7 +2248,7 @@ class SetCurrentMissionItemIndexResponse :
   ::mavsdk::rpc::mission::MissionResult* _internal_mutable_mission_result();
   public:
 
-  // @@protoc_insertion_point(class_scope:mavsdk.rpc.mission.SetCurrentMissionItemIndexResponse)
+  // @@protoc_insertion_point(class_scope:mavsdk.rpc.mission.SetCurrentMissionItemResponse)
  private:
   class _Internal;
 
@@ -4569,62 +4569,62 @@ inline void ClearMissionResponse::set_allocated_mission_result(::mavsdk::rpc::mi
 
 // -------------------------------------------------------------------
 
-// SetCurrentMissionItemIndexRequest
+// SetCurrentMissionItemRequest
 
 // int32 index = 1;
-inline void SetCurrentMissionItemIndexRequest::clear_index() {
+inline void SetCurrentMissionItemRequest::clear_index() {
   index_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 SetCurrentMissionItemIndexRequest::_internal_index() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 SetCurrentMissionItemRequest::_internal_index() const {
   return index_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 SetCurrentMissionItemIndexRequest::index() const {
-  // @@protoc_insertion_point(field_get:mavsdk.rpc.mission.SetCurrentMissionItemIndexRequest.index)
+inline ::PROTOBUF_NAMESPACE_ID::int32 SetCurrentMissionItemRequest::index() const {
+  // @@protoc_insertion_point(field_get:mavsdk.rpc.mission.SetCurrentMissionItemRequest.index)
   return _internal_index();
 }
-inline void SetCurrentMissionItemIndexRequest::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void SetCurrentMissionItemRequest::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   index_ = value;
 }
-inline void SetCurrentMissionItemIndexRequest::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void SetCurrentMissionItemRequest::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_index(value);
-  // @@protoc_insertion_point(field_set:mavsdk.rpc.mission.SetCurrentMissionItemIndexRequest.index)
+  // @@protoc_insertion_point(field_set:mavsdk.rpc.mission.SetCurrentMissionItemRequest.index)
 }
 
 // -------------------------------------------------------------------
 
-// SetCurrentMissionItemIndexResponse
+// SetCurrentMissionItemResponse
 
 // .mavsdk.rpc.mission.MissionResult mission_result = 1;
-inline bool SetCurrentMissionItemIndexResponse::_internal_has_mission_result() const {
+inline bool SetCurrentMissionItemResponse::_internal_has_mission_result() const {
   return this != internal_default_instance() && mission_result_ != nullptr;
 }
-inline bool SetCurrentMissionItemIndexResponse::has_mission_result() const {
+inline bool SetCurrentMissionItemResponse::has_mission_result() const {
   return _internal_has_mission_result();
 }
-inline void SetCurrentMissionItemIndexResponse::clear_mission_result() {
+inline void SetCurrentMissionItemResponse::clear_mission_result() {
   if (GetArenaNoVirtual() == nullptr && mission_result_ != nullptr) {
     delete mission_result_;
   }
   mission_result_ = nullptr;
 }
-inline const ::mavsdk::rpc::mission::MissionResult& SetCurrentMissionItemIndexResponse::_internal_mission_result() const {
+inline const ::mavsdk::rpc::mission::MissionResult& SetCurrentMissionItemResponse::_internal_mission_result() const {
   const ::mavsdk::rpc::mission::MissionResult* p = mission_result_;
   return p != nullptr ? *p : *reinterpret_cast<const ::mavsdk::rpc::mission::MissionResult*>(
       &::mavsdk::rpc::mission::_MissionResult_default_instance_);
 }
-inline const ::mavsdk::rpc::mission::MissionResult& SetCurrentMissionItemIndexResponse::mission_result() const {
-  // @@protoc_insertion_point(field_get:mavsdk.rpc.mission.SetCurrentMissionItemIndexResponse.mission_result)
+inline const ::mavsdk::rpc::mission::MissionResult& SetCurrentMissionItemResponse::mission_result() const {
+  // @@protoc_insertion_point(field_get:mavsdk.rpc.mission.SetCurrentMissionItemResponse.mission_result)
   return _internal_mission_result();
 }
-inline ::mavsdk::rpc::mission::MissionResult* SetCurrentMissionItemIndexResponse::release_mission_result() {
-  // @@protoc_insertion_point(field_release:mavsdk.rpc.mission.SetCurrentMissionItemIndexResponse.mission_result)
+inline ::mavsdk::rpc::mission::MissionResult* SetCurrentMissionItemResponse::release_mission_result() {
+  // @@protoc_insertion_point(field_release:mavsdk.rpc.mission.SetCurrentMissionItemResponse.mission_result)
   
   ::mavsdk::rpc::mission::MissionResult* temp = mission_result_;
   mission_result_ = nullptr;
   return temp;
 }
-inline ::mavsdk::rpc::mission::MissionResult* SetCurrentMissionItemIndexResponse::_internal_mutable_mission_result() {
+inline ::mavsdk::rpc::mission::MissionResult* SetCurrentMissionItemResponse::_internal_mutable_mission_result() {
   
   if (mission_result_ == nullptr) {
     auto* p = CreateMaybeMessage<::mavsdk::rpc::mission::MissionResult>(GetArenaNoVirtual());
@@ -4632,11 +4632,11 @@ inline ::mavsdk::rpc::mission::MissionResult* SetCurrentMissionItemIndexResponse
   }
   return mission_result_;
 }
-inline ::mavsdk::rpc::mission::MissionResult* SetCurrentMissionItemIndexResponse::mutable_mission_result() {
-  // @@protoc_insertion_point(field_mutable:mavsdk.rpc.mission.SetCurrentMissionItemIndexResponse.mission_result)
+inline ::mavsdk::rpc::mission::MissionResult* SetCurrentMissionItemResponse::mutable_mission_result() {
+  // @@protoc_insertion_point(field_mutable:mavsdk.rpc.mission.SetCurrentMissionItemResponse.mission_result)
   return _internal_mutable_mission_result();
 }
-inline void SetCurrentMissionItemIndexResponse::set_allocated_mission_result(::mavsdk::rpc::mission::MissionResult* mission_result) {
+inline void SetCurrentMissionItemResponse::set_allocated_mission_result(::mavsdk::rpc::mission::MissionResult* mission_result) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete mission_result_;
@@ -4652,7 +4652,7 @@ inline void SetCurrentMissionItemIndexResponse::set_allocated_mission_result(::m
     
   }
   mission_result_ = mission_result;
-  // @@protoc_insertion_point(field_set_allocated:mavsdk.rpc.mission.SetCurrentMissionItemIndexResponse.mission_result)
+  // @@protoc_insertion_point(field_set_allocated:mavsdk.rpc.mission.SetCurrentMissionItemResponse.mission_result)
 }
 
 // -------------------------------------------------------------------

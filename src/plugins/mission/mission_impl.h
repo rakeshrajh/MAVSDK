@@ -33,29 +33,48 @@ public:
     void cancel_mission_upload_async(const Mission::result_callback_t callback);
     Mission::Result cancel_mission_upload();
 
+    std::pair<Mission::Result, std::vector<Mission::MissionItem>> download_mission();
     void download_mission_async(const Mission::download_mission_callback_t& callback);
-    void download_mission_cancel();
 
-    void set_return_to_launch_after_mission(bool enable_rtl);
-    bool get_return_to_launch_after_mission();
+    Mission::Result cancel_mission_download();
+    void cancel_mission_download_async(const Mission::result_callback_t& callback);
 
+    Mission::Result set_return_to_launch_after_mission(bool enable_rtl);
+    void set_return_to_launch_after_mission_async(
+        bool enable_rtl, const Mission::result_callback_t& callback);
+
+    std::pair<Mission::Result, bool> get_return_to_launch_after_mission();
+    void get_return_to_launch_after_mission_async(
+        const Mission::get_return_to_launch_after_mission_callback_t& callback);
+
+    Mission::Result start_mission();
     void start_mission_async(const Mission::result_callback_t& callback);
+
+    Mission::Result pause_mission();
     void pause_mission_async(const Mission::result_callback_t& callback);
+
+    Mission::Result clear_mission();
     void clear_mission_async(const Mission::result_callback_t& callback);
 
-    void clear_mission();
+    Mission::Result set_current_mission_item(int index);
+    void set_current_mission_item_async(int current, const Mission::result_callback_t& callback);
 
-    void set_current_mission_item_async(int current, Mission::result_callback_t& callback);
-
-    bool is_mission_finished() const;
+    std::pair<Mission::Result, bool> is_mission_finished() const;
+    void is_mission_finished_async(const Mission::is_mission_finished_callback_t& callback);
 
     int current_mission_item() const;
     int total_mission_items() const;
 
-    void subscribe_mission_progress(Mission::mission_progress_callback_t callback);
+    Mission::MissionProgress mission_progress();
+    void mission_progress_async(Mission::mission_progress_callback_t callback);
 
-    static Mission::Result import_qgroundcontrol_mission(
-        std::vector<Mission::MissionItem>& mission_items, const std::string& qgc_plan_file);
+    void import_qgroundcontrol_mission_async(
+        std::string qgc_plan_path,
+        const Mission::import_qgroundcontrol_mission_callback_t callback);
+
+    static std::pair<Mission::Result, std::vector<Mission::MissionItem>>
+    import_qgroundcontrol_mission(const std::string& qgc_plan_path);
+
     // Non-copyable
     MissionImpl(const MissionImpl&) = delete;
     const MissionImpl& operator=(const MissionImpl&) = delete;

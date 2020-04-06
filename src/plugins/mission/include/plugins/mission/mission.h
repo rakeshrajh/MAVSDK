@@ -263,14 +263,14 @@ public:
      * Note that this is not necessarily true for general missions using MAVLink if loop counters
      * are used.
      */
-    void set_current_mission_item_index_async(int32_t index, const result_callback_t callback);
+    void set_current_mission_item_async(int32_t index, const result_callback_t callback);
 
     /**
-     * @brief Synchronous wrapper for set_current_mission_item_index_async().
+     * @brief Synchronous wrapper for set_current_mission_item_async().
      *
      * @return Result of request.
      */
-    Result set_current_mission_item_index(int32_t index) const;
+    Result set_current_mission_item(int32_t index) const;
 
     /**
      * @brief Callback type for is_mission_finished_async.
