@@ -18,6 +18,8 @@ if (ENABLE_MAVLINK_PASSTHROUGH)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DENABLE_MAVLINK_PASSTHROUGH")
 endif()
 
+find_package(JsonCpp REQUIRED)
+
 # This includes all GTests that run integration tests
 add_executable(integration_tests_runner
     ../core/unittests_main.cpp
@@ -90,6 +92,7 @@ target_link_libraries(integration_tests_runner
     mavsdk_param
     mavsdk_mavlink_ftp
     ${additional_libs}
+    JsonCpp::jsoncpp
     gtest
     gtest_main
     gmock
